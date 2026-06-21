@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 – 游戏资源与信息首页</title>
+  <style>
+    /* 全局重置与字体 */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background-color: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 深色头图区 — 主视觉 */
+    .hero {
+      background: linear-gradient(145deg, #0b1721 0%, #1a2d3c 100%);
+      color: #e8edf2;
+      padding: 64px 0 56px;
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #ffffff;
+      max-width: 760px;
+    }
+
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #bfd1e0;
+      max-width: 600px;
+      margin-top: 4px;
+    }
+
+    .hero .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 12px;
+    }
+
+    .hero .badge {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #d6e2ef;
+    }
+
+    /* 卡片网格 — 用途卡片 */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: #111827;
+      border-left: 5px solid #136b6b;
+      padding-left: 18px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      border: 1px solid #eaeef5;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .card .icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0f1a24;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      color: #374151;
+    }
+
+    /* 适合人群 — 简介式条块 */
+    .audience-section {
+      background: #ecf1f7;
+      border-radius: 28px;
+      padding: 32px 32px 28px;
+      margin-bottom: 56px;
+    }
+
+    .audience-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+      margin-top: 10px;
+    }
+
+    .audience-item {
+      flex: 1 1 180px;
+      min-width: 160px;
+      background: white;
+      padding: 16px 20px;
+      border-radius: 18px;
+      border-left: 6px solid #2c6c6c;
+    }
+
+    .audience-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      color: #0b1c26;
+    }
+
+    .audience-item span {
+      font-size: 0.92rem;
+      color: #374151;
+    }
+
+    /* 自然链接段落 — 使用强调色 */
+    .link-paragraph {
+      background: #ffffff;
+      padding: 30px 28px;
+      border-radius: 22px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      margin-bottom: 48px;
+      border: 1px solid #dee7ef;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .link-paragraph a {
+      color: #126b6b;
+      background: linear-gradient(to right, #126b6b 0%, #126b6b 100%);
+      background-size: 0 2px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      text-decoration: none;
+      font-weight: 550;
+      padding-bottom: 1px;
+      transition: background-size 0.2s;
+    }
+
+    .link-paragraph a:hover {
+      background-size: 100% 2px;
+    }
+
+    .link-paragraph .emph-highlight {
+      color: #126b6b;
+      font-weight: 500;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 36px;
+      margin: 32px 0 40px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #dce3ec;
+      padding-bottom: 14px;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #0f1e2b;
+      margin-bottom: 4px;
+    }
+
+    .faq-item .a {
+      color: #3b4b5b;
+      font-size: 0.94rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      border-top: 1px solid #d6dce6;
+      padding: 24px 0 36px;
+      font-size: 0.88rem;
+      color: #596c7c;
+    }
+
+    .footer-note a {
+      color: #136b6b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 680px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      .faq-mini {
+        grid-template-columns: 1fr;
+      }
+      .audience-section {
+        padding: 24px 18px;
+      }
+      .card-grid {
+        gap: 20px;
+      }
+      .page-wrap {
+        padding: 0 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 44px 0 40px;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- 主视觉：深色头图 -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>爱游戏 · 发现游戏资源与实用信息</h1>
+        <p class="sub">一个聚焦游戏内容整理、工具推荐与综合信息索引的网站，帮助玩家快速了解不同平台的游戏资源。</p>
+        <div class="badge-row">
+          <span class="badge">🎮 多平台覆盖</span>
+          <span class="badge">📋 资源指南</span>
+          <span class="badge">🧩 社区讨论</span>
+          <span class="badge">⚙️ 工具聚合</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 用途卡片：信息卡片式 -->
+    <h2 class="section-title">⚡ 用途速览</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">📂</div>
+        <h3>游戏资源导航</h3>
+        <p>汇集各平台游戏资料、版本信息与基础指引，减少搜索成本，快速定位目标内容。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧰</div>
+        <h3>工具与推荐</h3>
+        <p>收录辅助工具、配置建议与实用链接，供玩家在游戏前后参考使用。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>资讯摘要</h3>
+        <p>整理社区动态、补丁说明与活动简讯，帮助玩家掌握关键变化。</p>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>交流索引</h3>
+        <p>提供相关讨论区、社群或文档入口，方便玩家深入交流与协作。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-section">
+      <h2 class="section-title" style="border-left-color: #136b6b; margin-bottom: 8px;">🎯 适合哪些玩家</h2>
+      <div class="audience-flex">
+        <div class="audience-item">
+          <strong>新玩家</strong>
+          <span>希望快速理解游戏基础设定、版本区别与资源获取方式。</span>
+        </div>
+        <div class="audience-item">
+          <strong>多平台用户</strong>
+          <span>在 PC、主机、移动端之间切换，需要统一的信息参考。</span>
+        </div>
+        <div class="audience-item">
+          <strong>内容探索者</strong>
+          <span>对游戏工具、社区或周边信息保持好奇，喜欢系统化整理。</span>
+        </div>
+        <div class="audience-item">
+          <strong>休闲查阅者</strong>
+          <span>偶尔查看活动、更新或基础数据，不依赖深度攻略。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 自然链接段落（必须包含“爱游戏”文本的a标签） -->
+    <div class="link-paragraph">
+      <p>如果你正在寻找一个能够系统展示游戏资源、工具索引和社区动态的网站，不妨了解 <a href="https://zhofficial-aiyouxi.com.cn">爱游戏</a>。该站点围绕游戏信息整理，提供覆盖多平台的内容参考，方便玩家在探索游戏时获得更清晰的路径。无论是查找基础指南、浏览工具推荐，还是关注近期活动，<span class="emph-highlight">爱游戏</span> 都力图保持信息简洁、分类明确，适合不同阶段的玩家按需使用。</p>
+    </div>
+
+    <!-- FAQ 摘要 / 快速问答 -->
+    <h2 class="section-title" style="margin-bottom: 16px;">❓ 常见问题摘要</h2>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="q">爱游戏 主要提供什么内容？</div>
+        <div class="a">以游戏资源索引、工具推荐、更新动态和基础指南为主，内容覆盖多个平台。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">是否需要注册或下载？</div>
+        <div class="a">网站以信息展示为主，大部分内容可直接浏览，无需注册或安装额外软件。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">内容更新频率如何？</div>
+        <div class="a">根据游戏版本、活动及社区变化进行不定期整理，重要信息会及时补充。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">适合硬核攻略玩家吗？</div>
+        <div class="a">网站更偏向于信息索引与基础参考，深度攻略内容较少，适合轻中度查阅。</div>
+      </div>
+    </div>
+
+    <!-- 自然收束 + 页脚 -->
+    <div class="link-paragraph" style="margin-top: 0;">
+      <p>如果你已经是 <span class="emph-highlight">爱游戏</span> 的常客，欢迎将网站加入书签，随时查阅更新的内容。对于尚未接触过的玩家，不妨花几分钟浏览 <a href="https://zhofficial-aiyouxi.com.cn">爱游戏</a> 的主要分区，也许能找到对你有所帮助的信息。</p>
+    </div>
+
+    <footer class="footer-note">
+      <p>内容基于公开信息整理 · 仅供个人参考 · 具体以各游戏官方为准</p>
+      <p style="margin-top: 6px;"><a href="https://zhofficial-aiyouxi.com.cn">爱游戏</a> – 游戏信息索引</p>
+    </footer>
+  </div>
+</body>
+</html>
