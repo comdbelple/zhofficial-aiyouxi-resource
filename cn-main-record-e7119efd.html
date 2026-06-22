@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 知识探索</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f6f3;
+            color: #1b1b1f;
+            font-family: "Georgia", "Noto Serif SC", "Songti SC", serif;
+            line-height: 1.75;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.8rem 1.2rem 4rem;
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* 开场 —— 短句 / 副标题感 */
+        .opening {
+            font-size: 1.15rem;
+            letter-spacing: 0.03em;
+            color: #4f4e53;
+            margin-bottom: 0.4rem;
+            border-left: 3px solid #b7ad9a;
+            padding-left: 1.2rem;
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin: 1.2rem 0 0.75rem;
+            line-height: 1.2;
+            color: #0f0f12;
+        }
+
+        .byline {
+            font-size: 0.9rem;
+            color: #706e77;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid #e1ddd5;
+            padding-bottom: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin: 2.8rem 0 1rem;
+            border-bottom: 1px solid #d7d2ca;
+            padding-bottom: 0.4rem;
+            color: #1d1b20;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.5rem;
+            color: #28262c;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #3a3c4b;
+            text-decoration: none;
+            border-bottom: 1px solid #b7b1a3;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover, a:focus {
+            color: #0f0f12;
+            border-bottom-color: #0f0f12;
+        }
+
+        /* 特点列表 —— 温和、附带短说明 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 1.8rem;
+        }
+
+        .feature-list li {
+            padding: 0.9rem 0 0.9rem 2rem;
+            border-bottom: 1px dashed #e2ddd5;
+            position: relative;
+            font-size: 0.98rem;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0.1rem;
+            top: 0.9rem;
+            color: #9b927e;
+            font-size: 0.9rem;
+        }
+
+        .feature-list strong {
+            font-weight: 550;
+            color: #1a1b20;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #545159;
+            margin-top: 0.2rem;
+        }
+
+        /* 场景引用块 */
+        .scene-block {
+            background: #efede9;
+            border-radius: 12px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .scene-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 提示 / 简要 FAQ 样式 */
+        .note-card {
+            background: #fffbf8;
+            border: 1px solid #dbd6ce;
+            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            margin: 2.4rem 0 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+        }
+
+        .note-card p {
+            margin-bottom: 0.6rem;
+        }
+
+        .note-card .small-head {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7c776b;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .faq-item {
+            margin: 0.8rem 0;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #222026;
+        }
+
+        .faq-answer {
+            color: #4d4a4f;
+            padding-left: 0.8rem;
+            border-left: 2px solid #d1cbc1;
+            margin-top: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d9d4cc;
+            font-size: 0.85rem;
+            color: #6f6c72;
+            text-align: center;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #cdc7bc, transparent);
+            margin: 2.8rem 0;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1.6rem 1rem 3rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .opening {
+                font-size: 1rem;
+            }
+            .scene-block {
+                padding: 1.4rem 1.2rem;
+            }
+            .note-card {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        并非所有查询都只求一个答案。
+    </div>
+
+    <h1>星空体育 · 对照与延伸</h1>
+    <div class="byline">从一次查阅开始，走向更宽的认知边界</div>
+
+    <p>
+        我们每天都会面对大量信息，尤其在体育领域——赛果、数据、趋势、解读…… 
+        但大多数时候，我们需要的并非孤立的数字，而是可参照的坐标。 
+        正因如此，许多人保持着一种习惯：先查证，再对照，然后思考。 
+        这也是为什么 <a href="https://cn-main-xingkong.com">星空体育</a> 成为许多人日常浏览中一个安静的落脚点。
+    </p>
+
+    <p>
+        它不鼓吹独家，也不标榜最快。它更像一座经过整理的信息书架—— 
+        把散落在各处的赛事面貌、团队脉络和赛季变化，用一种相对稳定的方式呈现出来。 
+        当你需要核实一个细节、对比不同联赛的节奏，或者只是想跳出算法推送的信息茧房，
+        这个平台提供了一种更沉静的阅读路径。
+    </p>
+
+    <!-- 特点列表（承接上文，非流水账） -->
+    <h2>三个值得留意的特点</h2>
+
+    <ul class="feature-list">
+        <li>
+            <strong>结构化的赛事档案</strong>
+            <div class="feature-desc">
+                并非简单罗列比分，而是将每一轮、每一阶段的关键变动整理成可追溯的条目。从阵容调整到积分演变，都保留上下文。
+            </div>
+        </li>
+        <li>
+            <strong>克制的信息密度</strong>
+            <div class="feature-desc">
+                页面排版以阅读优先，避免弹窗、闪烁或过量动效。每个段落都经过筛选，减少无关干扰，让对照本身成为焦点。
+            </div>
+        </li>
+        <li>
+            <strong>跨赛季的延伸视角</strong>
+            <div class="feature-desc">
+                不仅关注当下热点，也保留过去数赛季的基础数据。当你需要回溯某支球队的成长曲线或联赛风格变化，这里提供稳定的切面。
+            </div>
+        </li>
+    </ul>
+
+    <!-- 场景段落：日常使用 -->
+    <div class="scene-block">
+        <p style="font-weight: 450; color: #2d292b;">一个常见的午后场景</p>
+        <p>
+            你刚看完一轮比赛，对某个判罚或战术调整有些疑问。打开 <a href="https://cn-main-xingkong.com">星空体育</a>，
+            不是为了找新闻标题，而是想看看官方数据与历史统计之间是否存在差异。
+            你反复对比两三张表格，又翻到上一赛季的类似情况——这种“翻阅”本身，
+            就是一次小型研究。没有催促，没有信息轰炸，只有整齐的条目等你调用。
+        </p>
+        <p>
+            另一天，你可能只是想了解某个联赛的升班马背景。从当前排名倒推几轮，
+            再对照引援记录，你逐渐拼凑出一个更完整的图景。整个过程安静、自主，
+            像在图书馆里顺着索书号找到相邻的书架。
+        </p>
+    </div>
+
+    <!-- 温和的延伸阅读与提示（问答式，非模板） -->
+    <div class="note-card">
+        <div class="small-head">延伸阅读 · 简要摘录</div>
+
+        <div class="faq-item">
+            <div class="faq-question">为什么有人把它当“第二屏”使用？</div>
+            <div class="faq-answer">
+                一边看直播或录像，一边在另一设备上对照数据。页面加载轻、布局稳定，
+                不会因为频繁切换而丢失视线位置。适合那些习惯边看边查的观众。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">怎么利用这里的“对照”功能？</div>
+            <div class="faq-answer">
+                不必只盯着一场比赛。你可以同时打开两支球队的赛季总览，平行比较进球分布、
+                主客场差异。这种横向对比往往比单独看一篇分析文章更有启发性。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">它适合深度阅读还是快速浏览？</div>
+            <div class="faq-answer">
+                两者皆可。但更推荐把它当作“驻留型”页面——花十几分钟慢慢追溯几条线索，
+                而不是每十秒刷新一次。它的节奏是为静心对照设计的。
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- 温和结尾 -->
+    <p style="font-size: 1.05rem; color: #2f2c33;">
+        信息世界越喧嚣，一个简洁、可信的参照坐标就越珍贵。 
+        下次当你需要在繁杂的体育资讯中找到一条清晰的对照路径时，
+        不妨打开 <a href="https://cn-main-xingkong.com">星空体育</a>， 
+        给自己留一段安静查证与延伸阅读的时间。
+    </p>
+
+    <footer>
+        <p>—— 基于日常阅览与对照习惯 · 一个安静的索引角落</p>
+    </footer>
+</div>
+
+</body>
+</html>
